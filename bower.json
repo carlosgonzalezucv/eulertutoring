@@ -1,0 +1,69 @@
+{
+  "name": "inspinia",
+  "version": "2.7.0",
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-cookies": "~1.5.0",
+    "angular-touch": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-messages": "~1.5.0",
+    "angular-aria": "~1.5.0",
+    "angular-resource": "~1.5.0",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.7",
+    "angular-bootstrap": "~1.1.2",
+    "animate.css": "~3.4.0",
+    "pace": "~1.0.2",
+    "fontawesome": "~4.7.0",
+    "angular-translate": "^2.18.1",
+    "angular-jwt": "^0.1.10",
+    "AngularJS-Toaster": "angularjs-toaster#^2.2.0",
+    "angular-md5": "^0.1.10",
+    "ng-idle": "angular-idle#^1.3.2",
+    "wow": "^1.1.2",
+    "intl-tel-input": "^13.0.2",
+    "owl.carousel": "^2.3.4",
+    "waypoints": "jquery-waypoints#^4.0.1",
+    "angularjs-geolocation": "^0.1.1",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "dropzone": "^5.1.1",
+    "angular-wizard": "^1.1.1",
+    "moment": "^2.22.2",
+    "angular-ui-select": "^0.19.8",
+    "chart.js": "chartjs#^2.7.2",
+    "ng-cropper": "^0.4.1",
+    "ngmap": "^1.18.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.min.js",
+        "less/bootstrap.less",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "fontawesome": {
+      "main": [
+        "less/font-awesome.less",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "^3.1.1",
+    "angular": "~1.5.0"
+  }
+}
