@@ -4,6 +4,8 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 
+var deploy = require('gulp-gh-pages');
+
 var browserSync = require('browser-sync');
 
 var $ = require('gulp-load-plugins')();
@@ -24,3 +26,11 @@ function buildScripts() {
     .pipe($.eslint.format())
     .pipe($.size())
 };
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("dist/**/*")
+    .pipe(deploy())
+});
