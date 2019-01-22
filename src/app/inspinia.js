@@ -5,84 +5,89 @@
  * Custom scripts
  */
 
-angular.element(document).ready(function ($timeout) {
+ (function(){
+   
+   angular.element(document).ready(function ($timeout) {
+   
+   
+     // Full height of sidebar
+     function fix_height() {
+       var heightWithoutNavbar = angular.element("body > #wrapper").height() - 61;
+       angular.element(".sidebar-panel").css("min-height", heightWithoutNavbar + "px");
+   
+       var navbarHeight = angular.element('nav.navbar-default').height();
+       var wrapperHeigh = angular.element('#page-wrapper').height();
+   
+       if(navbarHeight > wrapperHeigh){
+         angular.element('#page-wrapper').css("min-height", navbarHeight + "px");
+       }
+   
+       if(navbarHeight < wrapperHeigh){
+         angular.element('#page-wrapper').css("min-height", angular.element(window).height()  + "px");
+       }
+   
+       if (angular.element('body').hasClass('fixed-nav')) {
+         if (navbarHeight > wrapperHeigh) {
+           angular.element('#page-wrapper').css("min-height", navbarHeight  + "px");
+         } else {
+           angular.element('#page-wrapper').css("min-height", angular.element(window).height() - 60 + "px");
+         }
+       }
+   
+     }
+   
+     angular.element(window).bind("load resize scroll", function() {
+       if(!angular.element("body").hasClass('body-small')) {
+         fix_height();
+       }
+     });
+   
+     // Move right sidebar top after scroll
+     angular.element(window).scroll(function(){
+       if (angular.element(window).scrollTop() > 0 && !angular.element('body').hasClass('fixed-nav') ) {
+         angular.element('#right-sidebar').addClass('sidebar-top');
+       } else {
+         angular.element('#right-sidebar').removeClass('sidebar-top');
+       }
+     });
+   
+     $timeout(function(){
+       fix_height();
+     });
+   
+     // Minimalize menu when screen is less than 768px
+     angular.element(window).bind("load resize", function() {
+       if (angular.element(document).width() < 769) {
+         angular.element('body').addClass('body-small')
+       } else {
+         angular.element('body').removeClass('body-small')
+       }
+     })
+   
+   });
+   
+   
+   $(document).ready(function () {
+   
+     // Highlight the top nav as scrolling
+     $('body').scrollspy({
+         target: '.navbar-fixed-top',
+         offset: 80
+     })
+   
+     // Page scrolling feature
+     $('a.page-scroll').bind('click', function(event) {
+         var link = $(this);
+         $('html, body').stop().animate({
+             scrollTop: $(link.attr('href')).offset().top - 70
+         }, 500);
+         event.preventDefault();
+     });
+   
+   });
+   
+   // Activate WOW.js plugin for animation on scrol
+   new WOW().init();
 
+  })();
 
-  // Full height of sidebar
-  function fix_height() {
-    var heightWithoutNavbar = angular.element("body > #wrapper").height() - 61;
-    angular.element(".sidebar-panel").css("min-height", heightWithoutNavbar + "px");
-
-    var navbarHeight = angular.element('nav.navbar-default').height();
-    var wrapperHeigh = angular.element('#page-wrapper').height();
-
-    if(navbarHeight > wrapperHeigh){
-      angular.element('#page-wrapper').css("min-height", navbarHeight + "px");
-    }
-
-    if(navbarHeight < wrapperHeigh){
-      angular.element('#page-wrapper').css("min-height", angular.element(window).height()  + "px");
-    }
-
-    if (angular.element('body').hasClass('fixed-nav')) {
-      if (navbarHeight > wrapperHeigh) {
-        angular.element('#page-wrapper').css("min-height", navbarHeight  + "px");
-      } else {
-        angular.element('#page-wrapper').css("min-height", angular.element(window).height() - 60 + "px");
-      }
-    }
-
-  }
-
-  angular.element(window).bind("load resize scroll", function() {
-    if(!angular.element("body").hasClass('body-small')) {
-      fix_height();
-    }
-  });
-
-  // Move right sidebar top after scroll
-  angular.element(window).scroll(function(){
-    if (angular.element(window).scrollTop() > 0 && !angular.element('body').hasClass('fixed-nav') ) {
-      angular.element('#right-sidebar').addClass('sidebar-top');
-    } else {
-      angular.element('#right-sidebar').removeClass('sidebar-top');
-    }
-  });
-
-  $timeout(function(){
-    fix_height();
-  });
-
-  // Minimalize menu when screen is less than 768px
-  angular.element(window).bind("load resize", function() {
-    if (angular.element(document).width() < 769) {
-      angular.element('body').addClass('body-small')
-    } else {
-      angular.element('body').removeClass('body-small')
-    }
-  })
-
-});
-
-
-$(document).ready(function () {
-
-  // Highlight the top nav as scrolling
-  $('body').scrollspy({
-      target: '.navbar-fixed-top',
-      offset: 80
-  })
-
-  // Page scrolling feature
-  $('a.page-scroll').bind('click', function(event) {
-      var link = $(this);
-      $('html, body').stop().animate({
-          scrollTop: $(link.attr('href')).offset().top - 70
-      }, 500);
-      event.preventDefault();
-  });
-
-});
-
-// Activate WOW.js plugin for animation on scrol
-new WOW().init();

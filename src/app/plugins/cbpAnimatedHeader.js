@@ -8,37 +8,38 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
-var cbpAnimatedHeader = (function() {
+var cbpAnimatedHeader = (function () {
 
-    var docElem = document.documentElement,
-        header = document.querySelector( '.navbar-default' ),
-        didScroll = false,
-        changeHeaderOn = 200;
+  var docElem = document.documentElement,
+    header = document.querySelector('.navbar-default'),
+    didScroll = false,
+    changeHeaderOn = 200;
 
-    function init() {
-        window.addEventListener( 'scroll', function( event ) {
-            if( !didScroll ) {
-                didScroll = true;
-                setTimeout( scrollPage, 250 );
-            }
-        }, false );
+  function init() {
+    header = header || document.querySelector('.navbar-default');    
+    window.addEventListener('scroll', function (event) {
+      if (!didScroll) {
+        didScroll = true;
+        setTimeout(scrollPage, 250);
+      }
+    }, false);
+  }
+
+  function scrollPage() {
+    var sy = scrollY();
+    if (sy >= changeHeaderOn) {
+      classie.add(header, 'navbar-scroll');
     }
-
-    function scrollPage() {
-        var sy = scrollY();
-        if ( sy >= changeHeaderOn ) {
-            classie.add( header, 'navbar-scroll' );
-        }
-        else {
-            classie.remove( header, 'navbar-scroll' );
-        }
-        didScroll = false;
+    else {
+      classie.remove(header, 'navbar-scroll');
     }
+    didScroll = false;
+  }
 
-    function scrollY() {
-        return window.pageYOffset || docElem.scrollTop;
-    }
+  function scrollY() {
+    return window.pageYOffset || docElem.scrollTop;
+  }
 
-    init();
+  setTimeout( () => init(), 1000);
 
 })();
