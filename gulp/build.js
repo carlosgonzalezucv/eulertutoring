@@ -20,7 +20,7 @@ gulp.task('partials', function () {
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
       module: 'inspinia',
-      root: 'app'
+      root: '/app'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
@@ -30,7 +30,7 @@ gulp.task('html', ['inject', 'partials'], function () {
   var partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: path.join(conf.paths.tmp, '/partials'),
-    addRootSlash: false
+    addRootSlash: true
   };
 
   var htmlFilter = $.filter('*.html', { restore: true });
@@ -42,12 +42,12 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
-    .pipe(jsFilter)
-    .pipe($.sourcemaps.init())
-    .pipe($.ngAnnotate())
-    .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
-    .pipe($.sourcemaps.write('maps'))
-    .pipe(jsFilter.restore)
+    //.pipe(jsFilter)
+    //.pipe($.sourcemaps.init())
+    //.pipe($.ngAnnotate())
+    //.pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
+    //.pipe($.sourcemaps.write('maps'))
+    //.pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap/fonts/', '../fonts/'))
