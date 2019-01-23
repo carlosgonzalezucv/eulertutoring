@@ -58,3 +58,18 @@
     };    
   }
 })();
+(function() {
+  'use strict';
+
+  angular
+    .module('inspinia')
+    .directive('about', about);
+
+  about.$inject = [];
+  function about() {
+    return {
+      restrict: "E",
+      templateUrl: "/app/components/landing/directives/about/about.html"
+    };    
+  }
+})();
