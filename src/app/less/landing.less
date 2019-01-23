@@ -202,11 +202,11 @@ body.landing-page {
   }
   .header-back.one {
     // background: url('../..assets/landing/img/ucv_header_one.jpg') 50% 0 no-repeat;
-    background: url('../../assets/images/patterns/header-profile-skin-2.png') 50% 0;
+    background: @navy-9;//url('../../assets/images/patterns/header-profile-skin-2.png') 50% 0;
   }
   .header-back.two {
     // background: url('../..assets/landing/img/header_two.jpg') 50% 0 no-repeat;
-    background: url('../../assets/images/patterns/header-profile-skin-1.png') 50% 0;
+    background: @navy-10;//url('../../assets/images/patterns/header-profile-skin-1.png') 50% 0;
   }
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
@@ -355,8 +355,12 @@ body.landing-page {
     padding: 20px 0;
   }
   .gray-section {
-    background: #f4f4f4;
-    margin-top: 60px;
+    background: #f9f9f9;
+    //margin-top: 60px;
+  }
+  .white-section {
+    background: #ffffff;
+    //margin-top: 60px;
   }
   .team-member {
     text-align: center;
@@ -404,7 +408,7 @@ body.landing-page {
     padding: 20px 16px;
   }
   li.pricing-title {
-    background: @navy;
+    background: @main-color;
     color: #fff;
     padding: 10px;
     border-radius: 4px 4px 0 0;
@@ -490,8 +494,8 @@ body.landing-page {
     color: #fff;
   }
   .btn-primary {
-    background-color: @navy;
-    border-color: @navy;
+    background-color: @main-color;
+    border-color: @main-color;
     color: #FFFFFF;
     font-size: 14px;
     padding: 10px 20px;
@@ -502,8 +506,8 @@ body.landing-page {
   .btn-primary:active,
   .btn-primary.active,
   .open .dropdown-toggle.btn-primary {
-    background-color: darken(@navy, 5%);
-    border-color: darken(@navy, 5%);
+    background-color: darken(@main-color, 5%);
+    border-color: darken(@main-color, 5%);
     color: #FFFFFF;
   }
   .btn-primary:active,
@@ -526,8 +530,8 @@ body.landing-page {
   fieldset[disabled] .btn-primary:focus,
   fieldset[disabled] .btn-primary:active,
   fieldset[disabled] .btn-primary.active {
-    background-color: #1dc5a3;
-    border-color: #1dc5a3;
+    background-color: @navy-5;
+    border-color: @navy-5;
   }
   /* RESPONSIVE CSS
   -------------------------------------------------- */
