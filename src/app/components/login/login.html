@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="row" style="margin: auto; width: 70%">
+    <form style="padding: 50px; display: flex; justify-content: center; flex-direction: column; align-items: center">
+      <div class="text-center">
+        <span style="font-size: 8em" class="fa fa-lock color-white"></span>
+        <h1 class="p-md">Welcome to Euler tutoring</h1>
+      </div>
+      <div class="form-group form-group-sm col-sm-8 col-md-4">
+        <div  class="input-group input-group-sm">
+          <input type="text" required name="username" ng-model="vm.username" ng-model-options="{ updateOn: 'blur' } " class="form-control"/>
+          <span class="input-group-addon"><span class="fa fa-user"></span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group form-group-sm col-sm-8 col-md-4">
+        <div  class="input-group input-group-sm">
+            <input type="password" required name="password" ng-model="vm.password" ng-model-options="{ updateOn: 'blur' } " class="form-control"/>
+            <span class="input-group-addon"><span class="fa fa-lock"></span>
+            </span>
+        </div>
+      </div>
+      <button style="width: 15%" class="btn btn-primary btn-sm m-md btn-rounded" type="submit"> Login </button>
+    </form>
+  </div>
+</div>
