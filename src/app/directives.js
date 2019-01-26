@@ -13,7 +13,7 @@
   function minimalizaSidebar ($timeout) {
     return {
       restrict: 'A',
-      template: '', //'<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a>',
+      template: '<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a>',
       controller: function ($scope) {
         angular.element('body').toggleClass('mini-navbar');
         $scope.minimalize = function () {
@@ -41,7 +41,7 @@
         // Call metsi to build when user signup
         scope.$watch('authentication.user', function () {
           $timeout(function () {
-            element.metisMenu();
+            element.metisMenu && element.metisMenu();
           });
         });
 

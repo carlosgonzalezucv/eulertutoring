@@ -14,12 +14,17 @@
       .state('index', {
         abstract: true,
         url: "/index",
-        templateUrl: "app/components/common/content.html"
+        templateUrl: "app/components/common/content.html",
+        onEnter: ["AuthService", "$state", function(AuthService, $state){
+          if(!AuthService.IsLoggedIn()) {
+            $state.go("login");
+          }
+        }]
       })
       .state('index.main', {
         url: "/main",
         templateUrl: "app/main/main.html",
-        data: { pageTitle: 'Example view' }
+        data: { pageTitle: 'Main view' }
       })
       .state('index.minor', {
         url: "/minor",
